@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import styled from 'styled-components';
 
-function App() {
+import { Header } from './components/Header/Header';
+import { HomePage } from './pages/HomePage';
+import { DiscoveryPage } from './pages/DiscoveryPage';
+import { BookPage } from './pages/BookPage';
+
+const AppContainer = styled.div`
+  font-family: 'Raleway', tahoma;
+`;
+
+function AppRouter() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AppContainer>
+        <Header />
+        <Route path="/" exact component={HomePage} />
+        <Route path="/discover/" component={DiscoveryPage} />
+        <Route path="/book/" component={BookPage} />
+      </AppContainer>
+    </Router>
   );
 }
 
-export default App;
+export default AppRouter;
