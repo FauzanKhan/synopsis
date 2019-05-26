@@ -1,18 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import styled from 'styled-components';
 
-export const Header = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link to="/">Home</Link>
-      </li>
-      <li>
-        <Link to="/discover/">Discover</Link>
-      </li>
-      <li>
-        <Link to="/book/">Book</Link>
-      </li>
-    </ul>
-  </nav>
+const AppHeader = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const Logo = styled.img`
+  height: 50px;
+`;
+
+const Header = ({ location }) => (
+  <AppHeader>
+    <Link to="/">
+      <Logo src="https://www.freepnglogos.com/uploads/whatsapp-circle-message-messaging-messenger-round-icon--24.png" />
+    </Link>
+    {location.pathname.includes('/book/') && <Link to="/">Go to HomePage</Link>}
+  </AppHeader>
 );
+
+const HeaderWithRouter = withRouter(Header);
+
+export { HeaderWithRouter as Header };

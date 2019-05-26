@@ -19,5 +19,7 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': 'off',
     'import/prefer-default-export': 'off',
+    'react/prop-types': 'off',
+    'jsx-a11y/interactive-supports-focus': 'off',
   },
 };
