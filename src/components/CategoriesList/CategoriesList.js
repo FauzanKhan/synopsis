@@ -13,13 +13,11 @@ const ListItem = styled.li`
 
   a {
     color: ${({ isSelected, theme }) => {
-      /* eslint-disable indent */
       if (isSelected) {
         return theme.colors.primary;
       }
       return theme.colors.text;
     }};
-    /* eslint-enable indent */
   }
 `;
 
