@@ -26,7 +26,7 @@ const DiscoveryPage = ({ location }) => {
 
   // For improved performance
   // useMemo can be used with dependencies [location.hash, categoriesList.length]
-  // For some reason it was not returning undefined, I did not want to put time into debugging that
+  // For some reason it was returning undefined instead of a function, I couldn't find time to debug it
   const getSelectedCategoryFromUrl = () => {
     if (location.hash && categoriesList) {
       return categoriesList.find(({ id }) => id === location.hash.slice(1));
