@@ -21,7 +21,7 @@ describe('Header', () => {
     expect(homePageLink.getAttribute('href')).toBe('/');
   });
 
-  it('should not render link to homepage on book page', () => {
+  it('should not render link to homepage on discover page', () => {
     const { queryByTestId } = render(
       <MemoryRouter>
         <Header location={{ pathname: '/discover/' }} />
