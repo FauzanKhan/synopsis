@@ -3,7 +3,7 @@ import { render, cleanup } from 'react-testing-library';
 import 'jest-dom/extend-expect';
 
 import { StoreContext } from '../StoreContext';
-import { redirectAnonymousUsers } from './redirectAnonymousUsers';
+import { redirectAnonymousUser } from './redirectAnonymousUser';
 
 jest.mock('../StoreContext', () => {
   const { createContext } = require('react');
@@ -13,7 +13,7 @@ jest.mock('../StoreContext', () => {
 afterEach(cleanup);
 
 const DummyComponent = ({ text }) => <div data-testid="component">{text}</div>;
-const DummyComponentWithRedirection = redirectAnonymousUsers(DummyComponent);
+const DummyComponentWithRedirection = redirectAnonymousUser(DummyComponent);
 
 test('It renders the component when user is Logged In', async () => {
   const { container } = render(

@@ -5,7 +5,7 @@ import { CategoriesList } from '../components/CategoriesList/CategoriesList';
 import { BooksList } from '../components/BooksList/BooksList';
 
 import { api } from '../shared/api';
-import { redirectAnonymousUsers } from '../shared/redirectAnonymousUsers';
+import { redirectAnonymousUser } from '../shared/redirectAnonymousUser';
 
 const Section = styled.section`
   display: grid;
@@ -79,6 +79,6 @@ const DiscoveryPage = ({ location }) => {
   );
 };
 
-const DiscoveryPageWithRedirection = redirectAnonymousUsers(DiscoveryPage);
+const DiscoveryPageWithRedirection = redirectAnonymousUser(DiscoveryPage);
 
 export { DiscoveryPageWithRedirection as DiscoveryPage };

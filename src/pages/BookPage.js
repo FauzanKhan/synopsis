@@ -5,7 +5,7 @@ import { Button } from '../components/Button/Button';
 import { api } from '../shared/api';
 import { FREE } from '../shared/userAccessTypes';
 import { StoreContext } from '../StoreContext';
-import { redirectAnonymousUsers } from '../shared/redirectAnonymousUsers';
+import { redirectAnonymousUser } from '../shared/redirectAnonymousUser';
 
 const Heading = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.large};
@@ -64,6 +64,6 @@ const BookPage = ({ match: { params } }) => {
   );
 };
 
-const BookPageWithRedirection = redirectAnonymousUsers(BookPage);
+const BookPageWithRedirection = redirectAnonymousUser(BookPage);
 
 export { BookPageWithRedirection as BookPage };
