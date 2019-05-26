@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 
 import { Button } from '../components/Button/Button';
@@ -15,12 +15,14 @@ const Container = styled.div`
 
 export const HomePage = ({ history, onLogInSuccess }) => {
   const { userIsLoggedIn } = useContext(StoreContext);
+  const [isAuthInProgress, setIsAuthInProgress] = useState(false);
 
   if (userIsLoggedIn) {
     history.push('/discover');
   }
 
   const onClick = async () => {
+    setIsAuthInProgress(true);
     await api.post('/auth');
     await onLogInSuccess();
     history.push('/discover');
@@ -28,7 +30,9 @@ export const HomePage = ({ history, onLogInSuccess }) => {
 
   return (
     <Container>
-      <Button onClick={onClick}>Log In</Button>
+      <Button disabled={isAuthInProgress} onClick={onClick}>
+        Log In
+      </Button>
     </Container>
   );
 };

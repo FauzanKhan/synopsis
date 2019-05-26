@@ -7,4 +7,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Demo
 
-A demo is available on [here](http://http://fauzan.in/synopsis/)
+A demo is available at [https://synopsis-demo.herokuapp.com](https://synopsis-demo.herokuapp.com)

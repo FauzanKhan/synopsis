@@ -10,6 +10,12 @@ export const Button = styled.button`
   min-width: 200px;
   text-align: center;
   cursor: pointer;
+  opacity: ${({ disabled }) => {
+    if (disabled) {
+      return 0.5;
+    }
+    return 1;
+  }};
 
   &:focus {
     outline: none;

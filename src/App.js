@@ -24,6 +24,8 @@ function AppRouter() {
 
     // API alway returns access_type: 'free'
     // set userAccessType: 'premium' below to see how app looks for premium users
+    // Adding below info to global state because
+    // they can potentially be needed in other parts of the app as it scales
     setStore({
       ...store,
       userAccessType,
@@ -40,7 +42,7 @@ function AppRouter() {
             <Route
               path="/"
               exact
-              component={props => <HomePage onLogInSuccess={onLogInSuccess} {...props} />}
+              component={(props) => <HomePage onLogInSuccess={onLogInSuccess} {...props} />}
             />
             <Route path="/discover/" component={DiscoveryPage} />
             <Route path="/book/:id" component={BookPage} />

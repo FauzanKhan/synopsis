@@ -40,7 +40,7 @@ const ImageOverlay = styled.div`
 const ImageContainer = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url(${props => props.src});
+  background-image: url(${(props) => props.src});
   background-position: center;
   background-size: cover;
   position: absolute;
@@ -49,7 +49,7 @@ const ImageContainer = styled.div`
 export const BooksList = ({ books }) => (
   <ListContainer>
     {books.map(({ id, title, image_url: imageUrl }) => (
-      <Link to={`/book/${id}`}>
+      <Link to={`/book/${id}`} key={id}>
         <BookCard key={id}>
           <ImageContainer src={imageUrl} />
           <ImageOverlay />

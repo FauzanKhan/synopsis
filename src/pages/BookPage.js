@@ -45,7 +45,7 @@ const BookPage = ({ match: { params } }) => {
       const bookRecrod = await api.get(`/books/${params.id}`);
       setBook(bookRecrod);
     })();
-  }, []);
+  }, [params.id]);
 
   return (
     <Fragment>
