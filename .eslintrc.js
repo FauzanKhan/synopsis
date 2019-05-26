@@ -21,5 +21,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/prop-types': 'off',
     'jsx-a11y/interactive-supports-focus': 'off',
+    'object-curly-newline': 'off',
+    'arrow-parens': 'off',
   },
 };
