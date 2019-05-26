@@ -24,7 +24,7 @@ describe('DiscoveryPageWithoutRedirection', () => {
     expect(getByTestId('categories-list')).toBeDefined();
   });
 
-  it('should not subscription overlay when access type is premium', () => {
+  it('should render books list', () => {
     const { getByTestId } = render(
       <ThemeProvider value={{ theme: { fontSize: {} } }}>
         <DiscoveryPage location={{}} />
