@@ -22,7 +22,7 @@ function AppRouter() {
   const onLogInSuccess = async () => {
     const { access_type: userAccessType } = await api.get('/me');
 
-    // API alway returns access_type: 'free'
+    // API always returns access_type: 'free'
     // set userAccessType: 'premium' below to see how app looks for premium users
     // Adding below info to global state because
     // they can potentially be needed in other parts of the app as it scales
