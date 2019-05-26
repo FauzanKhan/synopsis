@@ -9,9 +9,10 @@ const Container = styled.div`
 `;
 
 const BookCard = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.grey};
   position: relative;
   min-height: 360px;
+  border-radius: 4px;
+  overflow: hidden;
 `;
 
 const Title = styled.div`
