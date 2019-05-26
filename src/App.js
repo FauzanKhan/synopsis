@@ -11,7 +11,7 @@ import { StoreContext } from './StoreContext';
 
 import { api } from './shared/api';
 
-const AppContainer = styled.div`
+const Container = styled.div`
   font-family: 'Raleway', tahoma;
   max-width: 1080px;
   margin: auto;
@@ -37,7 +37,7 @@ function AppRouter() {
     <Router>
       <StoreContext.Provider value={store}>
         <ThemeProvider>
-          <AppContainer>
+          <Container>
             <Header />
             <Route
               path="/"
@@ -46,7 +46,7 @@ function AppRouter() {
             />
             <Route path="/discover/" component={DiscoveryPage} />
             <Route path="/book/:id" component={BookPage} />
-          </AppContainer>
+          </Container>
         </ThemeProvider>
       </StoreContext.Provider>
     </Router>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const ListContainer = styled.div`
+const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 24px;
@@ -47,7 +47,7 @@ const ImageContainer = styled.div`
 `;
 
 export const BooksList = ({ books }) => (
-  <ListContainer>
+  <Container>
     {books.map(({ id, title, image_url: imageUrl }) => (
       <Link to={`/book/${id}`} key={id}>
         <BookCard key={id}>
@@ -57,5 +57,5 @@ export const BooksList = ({ books }) => (
         </BookCard>
       </Link>
     ))}
-  </ListContainer>
+  </Container>
 );
