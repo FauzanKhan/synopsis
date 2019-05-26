@@ -16,7 +16,7 @@ jest.mock('../../shared/api', () => ({ api: { get: () => Promise.resolve({}) } }
 describe('BookPage', () => {
   afterEach(cleanup);
 
-  it('should render subscription overlay when access type is free', () => {
+  it('should show subscription overlay when access type is free', () => {
     act(() => {
       const { getByTestId } = render(
         <StoreContext.Provider value={{ userAccessType: 'free' }}>
@@ -30,7 +30,7 @@ describe('BookPage', () => {
     });
   });
 
-  it('should not subscription overlay when access type is premium', () => {
+  it('should not show subscription overlay when access type is premium', () => {
     const { queryByTestId } = render(
       <StoreContext.Provider value={{ userAccessType: 'premium' }}>
         <ThemeProvider value={{ theme: { fontSize: {} } }}>

@@ -36,7 +36,7 @@ describe('HomePage', () => {
     });
   });
 
-  it("should redirect user to discovery page when (s)he' logged in", () => {
+  it('should redirect user to discovery page when logged in', () => {
     act(() => {
       render(
         <StoreContext.Provider value={{ userIsLoggedIn: true }}>
