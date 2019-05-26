@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 
-import { Button } from '../components/Button/Button';
+import { Button } from '../../components/Button/Button';
 
-import { api } from '../shared/api';
-import { StoreContext } from '../StoreContext';
+import { api } from '../../shared/api';
+import { StoreContext } from '../../StoreContext';
 
 const Container = styled.div`
   display: flex;
@@ -30,7 +30,7 @@ export const HomePage = ({ history, onLogInSuccess }) => {
 
   return (
     <Container>
-      <Button disabled={isAuthInProgress} onClick={onClick}>
+      <Button disabled={isAuthInProgress} onClick={onClick} data-testId="login-button">
         Log In
       </Button>
     </Container>

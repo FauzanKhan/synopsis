@@ -10,51 +10,53 @@ jest.mock('../StoreContext', () => {
   return { StoreContext: createContext() };
 });
 
-afterEach(cleanup);
+describe('redirectAnonymousUser', () => {
+  const DummyComponent = ({ text }) => <div data-testid="component">{text}</div>;
+  const DummyComponentWithRedirection = redirectAnonymousUser(DummyComponent);
 
-const DummyComponent = ({ text }) => <div data-testid="component">{text}</div>;
-const DummyComponentWithRedirection = redirectAnonymousUser(DummyComponent);
+  afterEach(cleanup);
 
-test('It renders the component when user is Logged In', async () => {
-  const { container } = render(
-    <StoreContext.Provider value={{ userIsLoggedIn: true }}>
-      <DummyComponentWithRedirection />
-    </StoreContext.Provider>,
-  );
+  it('should render the component when user is Logged In', async () => {
+    const { container } = render(
+      <StoreContext.Provider value={{ userIsLoggedIn: true }}>
+        <DummyComponentWithRedirection />
+      </StoreContext.Provider>,
+    );
 
-  expect(container.firstChild).toMatchInlineSnapshot(`
-    <div
-      data-testid="component"
-    />
-  `);
-});
+    expect(container.firstChild).toMatchInlineSnapshot(`
+      <div
+        data-testid="component"
+      />
+    `);
+  });
 
-test('It passes props to the rendered component', async () => {
-  const props = {
-    tex: 'hello world',
-  };
+  it('should pass props to the rendered component', async () => {
+    const props = {
+      tex: 'hello world',
+    };
 
-  const { getByTestId } = render(
-    <StoreContext.Provider value={{ userIsLoggedIn: true }}>
-      <DummyComponentWithRedirection {...props} />
-    </StoreContext.Provider>,
-  );
+    const { getByTestId } = render(
+      <StoreContext.Provider value={{ userIsLoggedIn: true }}>
+        <DummyComponentWithRedirection {...props} />
+      </StoreContext.Provider>,
+    );
 
-  expect(getByTestId('component').text).toBe(props.text);
-});
+    expect(getByTestId('component').text).toBe(props.text);
+  });
 
-test('It redirects to homepage when user is not logged in', async () => {
-  const props = {
-    history: {
-      push: jest.fn(),
-    },
-  };
+  it('should redirect to homepage when user is not logged in', async () => {
+    const props = {
+      history: {
+        push: jest.fn(),
+      },
+    };
 
-  render(
-    <StoreContext.Provider value={{ userIsLoggedIn: false }}>
-      <DummyComponentWithRedirection {...props} />
-    </StoreContext.Provider>,
-  );
+    render(
+      <StoreContext.Provider value={{ userIsLoggedIn: false }}>
+        <DummyComponentWithRedirection {...props} />
+      </StoreContext.Provider>,
+    );
 
-  expect(props.history.push).toHaveBeenCalledWith('/');
+    expect(props.history.push).toHaveBeenCalledWith('/');
+  });
 });

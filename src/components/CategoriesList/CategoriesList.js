@@ -24,7 +24,7 @@ const ListItem = styled.li`
 `;
 
 export const CategoriesList = ({ categories, selectedCategoryId }) => (
-  <List>
+  <List data-testid="categories-list">
     {categories.map((category) => {
       const { title, id } = category;
       return (

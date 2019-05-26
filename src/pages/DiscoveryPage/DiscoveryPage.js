@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { CategoriesList } from '../components/CategoriesList/CategoriesList';
-import { BooksList } from '../components/BooksList/BooksList';
+import { CategoriesList } from '../../components/CategoriesList/CategoriesList';
+import { BooksList } from '../../components/BooksList/BooksList';
 
-import { api } from '../shared/api';
-import { redirectAnonymousUser } from '../shared/redirectAnonymousUser';
+import { api } from '../../shared/api';
+import { redirectAnonymousUser } from '../../shared/redirectAnonymousUser';
 
 const Section = styled.section`
   display: grid;
@@ -81,4 +81,7 @@ const DiscoveryPage = ({ location }) => {
 
 const DiscoveryPageWithRedirection = redirectAnonymousUser(DiscoveryPage);
 
-export { DiscoveryPageWithRedirection as DiscoveryPage };
+export {
+  DiscoveryPageWithRedirection as DiscoveryPage,
+  DiscoveryPage as DiscoveryPageWithoutRedirection,
+};

@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext, Fragment } from 'react';
 import styled from 'styled-components';
 
-import { Button } from '../components/Button/Button';
-import { api } from '../shared/api';
-import { FREE } from '../shared/userAccessTypes';
-import { StoreContext } from '../StoreContext';
-import { redirectAnonymousUser } from '../shared/redirectAnonymousUser';
+import { Button } from '../../components/Button/Button';
+import { api } from '../../shared/api';
+import { FREE } from '../../shared/userAccessTypes';
+import { StoreContext } from '../../StoreContext';
+import { redirectAnonymousUser } from '../../shared/redirectAnonymousUser';
 
 const Heading = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.large};
@@ -53,7 +53,7 @@ const BookPage = ({ match: { params } }) => {
       <Content>
         {book.content}
         {userAccessType === FREE && (
-          <SubscriptionOverlay>
+          <SubscriptionOverlay data-testid="subscription-overlay">
             <SubscriptionButtonWrapper>
               <Button>Subscribe to read</Button>
             </SubscriptionButtonWrapper>
@@ -66,4 +66,4 @@ const BookPage = ({ match: { params } }) => {
 
 const BookPageWithRedirection = redirectAnonymousUser(BookPage);
 
-export { BookPageWithRedirection as BookPage };
+export { BookPageWithRedirection as BookPage, BookPage as BookPageWithoutRedirection };

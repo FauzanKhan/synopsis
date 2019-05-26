@@ -17,10 +17,14 @@ const Header = ({ location }) => (
     <Link to="/">
       <Logo src="https://www.freepnglogos.com/uploads/whatsapp-circle-message-messaging-messenger-round-icon--24.png" />
     </Link>
-    {location.pathname.includes('/book/') && <Link to="/">Go to HomePage</Link>}
+    {location.pathname.includes('/book/') && (
+      <Link to="/" data-testid="home-page-link">
+        Go to HomePage
+      </Link>
+    )}
   </AppHeader>
 );
 
 const HeaderWithRouter = withRouter(Header);
 
-export { HeaderWithRouter as Header };
+export { HeaderWithRouter as Header, Header as HeaderWithoutRouter };

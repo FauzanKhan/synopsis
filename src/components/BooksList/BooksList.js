@@ -47,7 +47,7 @@ const ImageContainer = styled.div`
 `;
 
 export const BooksList = ({ books }) => (
-  <Container>
+  <Container data-testid="books-list">
     {books.map(({ id, title, image_url: imageUrl }) => (
       <Link to={`/book/${id}`} key={id}>
         <BookCard key={id}>

@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Header } from './components/Header/Header';
-import { HomePage } from './pages/HomePage';
-import { DiscoveryPage } from './pages/DiscoveryPage';
-import { BookPage } from './pages/BookPage';
+import { HomePage } from './pages/HomePage/HomePage';
+import { DiscoveryPage } from './pages/DiscoveryPage/DiscoveryPage';
+import { BookPage } from './pages/BookPage/BookPage';
 import { ThemeProvider } from './components/ThemeProvider/ThemeProvider';
 import { StoreContext } from './StoreContext';
 
