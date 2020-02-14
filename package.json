@@ -43,7 +43,7 @@
     "lint-staged": "^8.1.7",
     "prettier": "1.17.1",
     "react-testing-library": "^7.0.1",
-    "yarn": "^1.16.0"
+    "yarn": "^1.22.0"
   },
   "husky": {
     "hooks": {
